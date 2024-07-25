@@ -1,0 +1,137 @@
+/* .detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    font-size: 150%;
+}
+.detail img{
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+.box-detail{
+    max-width: 500px;
+    width: 100%;
+    margin: 5px 20px;
+}
+.box-detail .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-detail h2{
+    text-transform: uppercase;
+    color: darkblue;
+    letter-spacing: 2px;
+    font-weight: 2rem;
+}
+.box-detail p{
+    line-height: 1.5;
+    margin: 10px 0;
+    opacity: 0.8;
+}
+.box-detail .cart{
+    background: #333;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 25px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+} */
+
+/* General Styles */
+
+  
+  /* Detail Section */
+  .detail {
+    width:auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    font-size: 1.2rem;
+    border-style: solid; 
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  /* Detail Image */
+  .detail img {
+    max-width:fit-content;
+    width: 100%;
+    margin: 20px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Box Detail */
+  .box-detail {
+    max-width: 500px;
+    width: 100%;
+    margin: 5px 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Row */
+  .box-detail .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Heading */
+  .box-detail h2 {
+    text-transform: uppercase;
+    color: #020d19;
+    letter-spacing: 2px;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Price */
+  .box-detail span {
+    color: #ff6347;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  /* Paragraph */
+  .box-detail p {
+    line-height: 1.6;
+    margin: 10px 0;
+    opacity: 0.9;
+    color: #555;
+  }
+  
+  /* Cart Button */
+  .box-detail .cart {
+    background: #28a745;
+    color: white;
+    margin-top: 20px;
+    padding: 15px 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .box-detail .cart:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
