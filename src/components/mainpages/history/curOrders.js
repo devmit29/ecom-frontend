@@ -14,7 +14,7 @@ function OrderHistory() {
             const getHistory = async() =>{
                 
                 if(isAdmin){
-                    const res = await axios.get('https://ecom-backend-qkpn.onrender.com/api/payment', {
+                    const res = await axios.get('/api/payment', {
                         headers: {Authorization: token}
                     })
                     
@@ -36,7 +36,7 @@ function OrderHistory() {
                 if(element._id === id){
                     
     
-                    const res =  axios.put('https://ecom-backend-qkpn.onrender.com/api/updateOrder', {_id: id},  {
+                    const res =  axios.put('./api/updateOrder', {_id: id},  {
                         headers: {Authorization: token}
                     })
                     

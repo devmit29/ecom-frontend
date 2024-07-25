@@ -24,7 +24,7 @@ function Cart() {
     },[cart])
 
     const addToCart = async (cart) =>{
-        await axios.patch('https://ecom-backend-qkpn.onrender.com/user/addcart', {cart}, {
+        await axios.patch('/user/addcart', {cart}, {
             headers: {Authorization: token}
         })
     }
@@ -80,9 +80,9 @@ function Cart() {
 			handler: async (response) => {
 				try {
 					console.log(response)
-					const { data } = await axios.post('https://ecom-backend-qkpn.onrender.com/api/verify', {response});
+					const { data } = await axios.post('/api/verify', {response});
                     const paymentID = response.razorpay_payment_id
-                    await axios.post('https://ecom-backend-qkpn.onrender.com/api/payment',{cart, paymentID}, {
+                    await axios.post('/api/payment',{cart, paymentID}, {
                         headers: {Authorization: token}
                     })
                     setCart([])
@@ -105,7 +105,7 @@ function Cart() {
     const handlePayment = async() => {
         try {
 			
-			const { data } = await axios.post('https://ecom-backend-qkpn.onrender.com/api/orders', { amount: total },  {
+			const { data } = await axios.post('/api/orders', { amount: total },  {
                 headers: {Authorization: token}
             });
 			console.log(data);
