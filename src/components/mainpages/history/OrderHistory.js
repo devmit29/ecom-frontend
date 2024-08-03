@@ -11,7 +11,7 @@ function OrderHistory() {
     
 
     useEffect(() => {
-        if(token){
+        if(token && isAdmin){
             const getHistory = async() =>{
                 if(isAdmin){
                     const res = await axios.get('/api/payment', {
