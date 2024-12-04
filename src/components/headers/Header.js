@@ -1,89 +1,90 @@
-import React, {useContext, useState} from 'react'
-import {GlobalState} from '../../GlobalState'
-import Menu from './icon/menu.svg'
-import Close from './icon/close.svg'
-import Cart from './icon/cart.svg'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import React, { useContext, useState } from "react";
+import { GlobalState } from "../../GlobalState";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
+import MenuIcon from "./icon/menu.svg";
+import CloseIcon from "./icon/close.svg";
+import CartIcon from "./icon/cart.svg";
 
 function Header() {
-    const state = useContext(GlobalState)
-    const [isLogged] = state.userAPI.isLogged
-    const [isAdmin] = state.userAPI.isAdmin
-    const [cart] = state.userAPI.cart
-    const [menu, setMenu] = useState(false)
+  const state = useContext(GlobalState);
+  const [isLogged] = state.userAPI.isLogged;
+  const [isAdmin] = state.userAPI.isAdmin;
+  const [cart] = state.userAPI.cart;
+  const [menu, setMenu] = useState(false);
 
-    const logoutUser = async () =>{
-        await axios.get('/user/logout')
-        
-        localStorage.removeItem('firstLogin')
-        
-        window.location.href = "/";
-    }
+  const logoutUser = async () => {
+    await axios.get("/user/logout");
+    localStorage.removeItem("firstLogin");
+    window.location.href = "/";
+  };
 
-    const adminRouter = () =>{
-        return(
-            <>
-                <li><Link to="/create_product">Create Product</Link></li>
-                <li><Link to="/category">Categories</Link></li>
-                <li><Link to="/curOrders">Current Orders</Link></li>
-            </>
-        )
-    }
+  const adminLinks = () => (
+    <>
+      <li>
+        <NavLink to="/create_product" activeClassName="active">Create Product</NavLink>
+      </li>
+      <li>
+        <NavLink to="/category" activeClassName="active">Categories</NavLink>
+      </li>
+      <li>
+        <NavLink to="/curOrders" activeClassName="active">Current Orders</NavLink>
+      </li>
+    </>
+  );
 
-    const loggedRouter = () =>{
-        return(
-            <>
-              {isAdmin?'':<li><Link to="/history">History</Link></li>}
-                <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
-            </>
-        )
-    }
+  const userLinks = () => (
+    <>
+      {!isAdmin && (
+        <li>
+          <NavLink to="/history" activeClassName="active">History</NavLink>
+        </li>
+      )}
+      <li>
+        <NavLink to="/" onClick={logoutUser}>Logout</NavLink>
+      </li>
+    </>
+  );
 
+  return (
+    <nav className="header">
+      <div className="menu" onClick={() => setMenu(!menu)}>
+        <img src={MenuIcon} alt="Menu" width="30" />
+      </div>
 
-    const styleMenu = {
-        left: menu ? 0 : "-100%"
-    }
+      <div className="logo">
+        <h1>
+          <NavLink to="/">{isAdmin ? "Admin" : "Amul Parlor"}</NavLink>
+        </h1>
+      </div>
 
-    return (
-        <header>
-            <div className="menu" onClick={() => setMenu(!menu)}>
-                <img src={Menu} alt="" width="30" />
-            </div>
+      <ul className={`nav-links ${menu ? "active" : ""}`}>
+              <li className={`home ${menu?"active":""}`}>
+          <NavLink to="/" activeClassName="active">
+            {isAdmin ? "Products" : "Home"}
+          </NavLink>
+        </li>
+        {isAdmin && adminLinks()}
+        {isLogged ? userLinks() : (
+          <li>
+            <NavLink to="/login" class="login-btn" activeClassName="active">Sign IN</NavLink>
+          </li>
+        )}
+        <li className="close-menu" onClick={() => setMenu(!menu)}>
+          <img src={CloseIcon} alt="Close" width="30" />
+        </li>
+      </ul>
 
-            <div className="logo">
-                <h1>
-                    <Link to="/">{isAdmin ? 'Admin' : 'Amul Parlor'}</Link>
-                </h1>
-            </div>
-
-            <ul style={styleMenu}>
-                <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
-
-                {isAdmin && adminRouter()}
-
-                {
-                    isLogged ? loggedRouter() : <li><Link to="/login">login/SignUP</Link></li>
-                }
-
-                <li onClick={() => setMenu(!menu)}>
-                    <img src={Close} alt="" width="30" className="menu" />
-                </li>
-
-            </ul>
-
-            {
-                isAdmin ? '' 
-                :<div className="cart-icon bg-white">
-                    <span>{cart.length}</span>
-                    <Link to="/cart">
-                        <img src={Cart} alt="" width="30" />
-                    </Link>
-                </div>
-            }
-            
-        </header>
-    )
+      {!isAdmin && isLogged && (
+        <div className="cart-icon">
+          <span>{cart.length}</span>
+          <NavLink to="/cart">
+            <img src={CartIcon} alt="Cart" width="30" />
+          </NavLink>
+        </div>
+      )}
+    </nav>
+  );
 }
 
-export default Header
+export default Header;
