@@ -21,13 +21,13 @@ function Header() {
 
   const adminLinks = () => (
     <>
-      <li>
+      <li className={`innerlist ${menu?"active":""}`}>
         <NavLink to="/create_product" activeClassName="active">Create Product</NavLink>
       </li>
-      <li>
+      <li className={`innerlist ${menu?"active":""}`}>
         <NavLink to="/category" activeClassName="active">Categories</NavLink>
       </li>
-      <li>
+      <li className={`innerlist ${menu?"active":""}`}>
         <NavLink to="/curOrders" activeClassName="active">Current Orders</NavLink>
       </li>
     </>
@@ -36,11 +36,11 @@ function Header() {
   const userLinks = () => (
     <>
       {!isAdmin && (
-        <li>
+        <li className={`innerlist ${menu?"active":""}`}>
           <NavLink to="/history" activeClassName="active">History</NavLink>
         </li>
       )}
-      <li>
+      <li className={`innerlist ${menu?"active":""}`}>
         <NavLink to="/" onClick={logoutUser}>Logout</NavLink>
       </li>
     </>
@@ -54,24 +54,35 @@ function Header() {
 
       <div className="logo">
         <h1>
-          <NavLink to="/">{isAdmin ? "Admin" : "Amul Parlor"}</NavLink>
+          <NavLink to="/">{isAdmin ? "Admin" : "Campus Parlor"}</NavLink>
         </h1>
       </div>
 
-      <ul className={`nav-links ${menu ? "active" : ""}`}>
-              <li className={`home ${menu?"active":""}`}>
-          <NavLink to="/" activeClassName="active">
-            {isAdmin ? "Products" : "Home"}
-          </NavLink>
-        </li>
-        {isAdmin && adminLinks()}
-        {isLogged ? userLinks() : (
-          <li>
-            <NavLink to="/login" class="login-btn" activeClassName="active">Sign IN</NavLink>
+      <ul className={`nav-links ${menu ? "active" : ""}`}>  
+        {(menu) && (<ul className="test">
+          <li className={`home ${menu ? "active" : ""}`}>
+            <NavLink to="/" activeClassName="active">
+              {isAdmin ? "Products" : "Home"}
+            </NavLink>
           </li>
-        )}
-        <li className="close-menu" onClick={() => setMenu(!menu)}>
-          <img src={CloseIcon} alt="Close" width="30" />
+          <li className="close-menu" onClick={() => setMenu(!menu)}>
+            <img src={CloseIcon} alt="Close" width="30" />
+          </li>
+        </ul>)}
+        <li className={`list ${menu ? "active" : ""}`}>
+          {!(menu) && (<li className={`home ${menu ? "active" : ""}`}>
+            <NavLink to="/" activeClassName="active">
+              {isAdmin ? "Products" : "Home"}
+            </NavLink>
+          </li>)}
+          
+          {isAdmin && adminLinks()}
+          {isLogged ? userLinks() : (
+          
+            <li onClick={() => setMenu(!menu)}>
+            <NavLink to="/login" class="login-btn" activeClassName="active">Sign IN</NavLink>
+            </li>
+          )}
         </li>
       </ul>
 
