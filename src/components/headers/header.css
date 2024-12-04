@@ -127,7 +127,9 @@
     align-items: center;
     z-index: 99;
   }
-
+  .logo{
+    margin-left: auto
+  }
   .nav-links.active {
     left: 0;
     display: flex;
