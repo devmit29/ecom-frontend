@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
 import ProductItem from '../utils/productItem/ProductItem'
 
@@ -23,10 +23,12 @@ function DetailProduct() {
     if(detailProduct.length === 0) return null;
 
     return (
-        <>
+        <div class="detail-page">
             <div className="detail">
-                <img src={detailProduct.images.url} alt="" />
-                <div className="box-detail">
+                <div class="image">
+                    <img src={detailProduct.images.url} alt="" />
+                </div>
+                    <div className="box-detail">
                     <div className="row">
                         <h2>{detailProduct.title}</h2>
                     </div>
@@ -34,10 +36,10 @@ function DetailProduct() {
                     <p>{detailProduct.description}</p>
                     <p>{detailProduct.content}</p>
                     <p>Sold: {detailProduct.sold}</p>
-                    <Link to="/cart" className="cart"
+                    <button class="cart"
                     onClick={() => addCart(detailProduct)}>
                         Add To Cart
-                    </Link>
+                    </button>
                 </div>
             </div>
 
@@ -52,7 +54,7 @@ function DetailProduct() {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

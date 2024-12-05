@@ -1,137 +1,160 @@
-/* .detail{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 50px;
-    font-size: 150%;
-}
-.detail img{
-    max-width: 400px;
-    width: 100%;
-    margin: 20px;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-}
-.box-detail{
-    max-width: 500px;
-    width: 100%;
-    margin: 5px 20px;
-}
-.box-detail .row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.box-detail h2{
-    text-transform: uppercase;
-    color: darkblue;
-    letter-spacing: 2px;
-    font-weight: 2rem;
-}
-.box-detail p{
-    line-height: 1.5;
-    margin: 10px 0;
-    opacity: 0.8;
-}
-.box-detail .cart{
-    background: #333;
-    color: white;
-    margin-top: 10px;
-    padding: 10px 25px;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-} */
 
-/* General Styles */
+.detail-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto; /* Center the page content */
+  padding: 10px 15px; /* Add padding for left and right spacing */
+  max-width: 100vw;/* Restrict maximum width for better responsiveness */
+  width: 100%; /* Full-width by default */
+  box-sizing: border-box;
+}
 
-  
-  /* Detail Section */
+/* Detail Section */
+.detail {
+  width: 100%; /* Ensures it doesn't exceed the viewport width */
+  max-width: 100%; /* Prevent extra width */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  padding: 50px;
+  font-size: 1.2rem;
+  border-style: solid; 
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding/border in the element's width */
+  overflow: hidden; /* Prevent child elements from causing overflow */
+}
+
+/* Detail Image */
+.image {
+  width: 100%;
+  max-width: 500px;
+  height: 450px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.detail img {
+  width: 100%;
+  max-width: 100%; /* Prevent image overflow */
+  margin: auto;
+  padding: 10px;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Box Detail */
+.box-detail {
+  max-width: 500px;
+  width: 100%;
+  margin: 5px 20px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box; /* Include padding/margin in width */
+}
+
+/* Row */
+.box-detail .row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Prevent overflow in smaller viewports */
+}
+
+/* Heading */
+.box-detail h2 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
+  color: #020d19;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Price */
+.box-detail span {
+  color: #ff6347;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Paragraph */
+.box-detail p {
+  line-height: 1.6;
+  margin: 10px 0;
+  opacity: 0.9;
+  color: #555;
+}
+
+/* Cart Button */
+.box-detail .cart {
+  background: #28a745;
+  height: auto;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  transition: background-color 0.3s transform 0.3s;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.box-detail .cart:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 720px) {
+  .detail-page {
+    padding: 10px; /* Add padding for left and right spacing on mobile */
+  }
+
   .detail {
-    width:auto;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 50px;
-    font-size: 1.2rem;
-    border-style: solid; 
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
-  
-  /* Detail Image */
-  .detail img {
-    max-width:fit-content;
-    width: 100%;
-    margin: 20px;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Box Detail */
-  .box-detail {
-    max-width: 500px;
-    width: 100%;
-    margin: 5px 20px;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Row */
-  .box-detail .row {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack image and details */
     align-items: center;
-    margin-bottom: 20px;
+    padding: 20px; /* Reduce padding for smaller screens */
+    overflow: hidden; /* Ensure no overflow in mobile */
   }
-  
-  /* Heading */
-  .box-detail h2 {
-    text-transform: uppercase;
-    color: #020d19;
-    letter-spacing: 2px;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-weight: bold;
+
+  .image {
+    width: 90%; /* Restrict image width */
+    max-width: 400px; /* Prevent overly large images */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px;
   }
-  
-  /* Price */
-  .box-detail span {
-    color: #ff6347;
-    font-weight: bold;
-    font-size: 1.5rem;
+
+  .detail img {
+    height: auto; /* Flexible height for images */
   }
-  
-  /* Paragraph */
-  .box-detail p {
-    line-height: 1.6;
+
+  .box-detail {
+    max-width: 100%; /* Full-width on mobile */
     margin: 10px 0;
-    opacity: 0.9;
-    color: #555;
+    text-align: center;
   }
-  
-  /* Cart Button */
-  .box-detail .cart {
-    background: #28a745;
-    color: white;
-    margin-top: 20px;
-    padding: 15px 30px;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 10px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-size: 1.1rem;
-    font-weight: bold;
+
+  .box-detail .row {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
   }
-  
-  .box-detail .cart:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
+
+  .box-detail h2 {
+    font-size: 2rem; /* Reduce heading size */
+    margin-bottom: 10px;
   }
-  
+
+  .box-detail span {
+    font-size: 1.4rem; /* Slightly smaller text */
+  }
+  .box-detail .cart{
+    width: 95%;
+  }
+}
