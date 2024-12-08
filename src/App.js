@@ -9,7 +9,6 @@ function App() {
   return (
     <DataProvider>
       <Router>
-        {/* <div className="mih-h-screen bg-slate-200 mx-2 px-1 [box-shadow:0_0_35px_#eee] "> */}
         <Header />
         <MainPages />
       </Router>

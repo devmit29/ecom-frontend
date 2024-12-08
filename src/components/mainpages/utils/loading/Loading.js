@@ -21,7 +21,7 @@ function Loading() {
                     </div>
                 </div>
             </div>
-            <p className='text'>Please Wait as the Backend is Loading.</p>
+            <p className='text'>Please Wait for 15 seconds as the Backend is Loading.</p>
         </div>
     )
 }
