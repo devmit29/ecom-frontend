@@ -1,124 +1,203 @@
 
-.cart {
-    position: relative;
-    border: 1px solid #e0e0e0;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .cart-container {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: Arial, sans-serif;
+    color: #333;
   }
   
-  .cart:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  .cart {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Amount Section */
+  .cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .product-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .details:first-child {
+    margin-top: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-variant: small-caps;
+    font-weight: bold;
+    color: #222;
+  }
+
+  .price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  .description, .content {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
   .amount {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 10px 0;
+    gap: 10px;
+    margin-top: 10px;
   }
-  
+
   .amount span {
-    color: #e74c3c;
-    padding: 0 20px;
-    font-weight: bold;
     font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
   }
-  
-  .amount button {
+
+  .btn {
     width: 40px;
     height: 40px;
-    border: 1px solid #888;
-    background: #f5f5f5;
-    border-radius: 50%;
-    font-size: 1rem;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
   }
-  
-  .amount button:hover {
-    background: #e0e0e0;
+
+  .btn:hover {
+    background: #ddd;
   }
-  
-  /* Delete Button */
+
   .delete {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #e74c3c;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: color 0.3s, transform 0.3s;
-  }
-  
-  .delete:hover {
-    color: #c0392b;
-    transform: scale(1.1);
-  }
-  
-  /* Total Section */
-  .total {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 10px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-  }
-  
-  .total h3 {
     color: #e74c3c;
     font-weight: bold;
-    font-size: 1.5rem;
-    margin-left: 20px; /* Add margin to the left */
+    height: 75%;
+    width: 5%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #e74c3c;
+    border-radius: 70%;
+    align-items: flex-start;
+    transition: color 0.3s;
   }
-  
-  /* Payment Button */
-  .payment {
-    background: #3498db;
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    border-radius: 28px;
-    box-shadow: 0px 1px 3px #666666;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 11px 20px;
-    text-decoration: none;
-    display: inline-block;
+
+  .delete:hover {
+    color: #c0392b;
+  }
+
+  .total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
-    transition: background 0.3s, transform 0.3s;
-    margin-right: 20px; /* Add margin to the right */
+    border-top: 1px solid #eee;
+    padding-top: 20px;
   }
-  
-  .payment:hover {
-    background: #f2994a;
-    background-image: linear-gradient(to bottom, #f2994a, #f2c94c);
-    text-decoration: none;
-    transform: translateY(-2px);
+
+  .payment-btn {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
   }
-  
-  /* Hover and Active States */
-  .payment:active {
-    transform: translateY(0);
+
+  .payment-btn:hover {
+    background: #2980b9;
   }
-  
-  .amount button:active {
-    transform: scale(0.95);
+
+  .payment-btn:active {
+    transform: translateY(2px);
   }
-  
-  .delete:active {
-    transform: scale(0.95);
+
+  @media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .product-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .details {
+      width: 100%;
+      align-items: flex-start;
+    }
+    
+    .first-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between
+    }
+
+    .amount {
+      margin-top: 0;
+    }
+
+    .btn {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+
+    .delete {
+      height: 50%;
+      width: 10%;
+    }
+
+    .title {
+      font-size: 1.2rem;
+    }
+
+    .price {
+      font-size: 1rem;
+    }
+
+    .description, .content {
+      font-size: 0.8rem;
+    }
+
+    .payment-btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
   }
-  
-  /* Total and Payment Alignment */
-  .total, .payment {
-    margin-bottom: 20px;
-  }
-  

@@ -124,40 +124,40 @@ function Cart() {
         return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2> 
 
     return (
-        <div>
-        
-            {
-                cart.map(product => (
-                    <div className="detail cart" key={product._id}>
-                        <img src={product.images.url} alt="" />
+        <div className="cart-container">
+    <div className='cart'>
+        {
+            cart.map(product => (
+                <div className="cart-item" key={product._id}>
+                    <img src={product.images.url} alt={product.title} className="product-image" />
 
-                        <div className="box-detail">
-                            <h2>{product.title}</h2>
-
-                            <h3>Rs.{product.price * product.quantity}</h3>
-                            <p>{product.description}</p>
-                            <p>{product.content}</p>
-
-                            <div className="amount">
-                                <button onClick={() => decrement(product._id)}> - </button>
-                                <span>{product.quantity}</span>
-                                <button onClick={() => increment(product._id)}> + </button>
+                    <div className="details">
+                        <div className='first-row'>
+                            <div className="title">{product.title}</div>
+                            <div className="delete" onClick={() => removeProduct(product._id)}>X</div>
                             </div>
-                            
-                            <div className="delete" 
-                            onClick={() => removeProduct(product._id)}>
-                                X
-                            </div>
+
+                        <h3 className="price">Rs. {product.price * product.quantity}</h3>
+                        <p className="description">{product.description}</p>
+                        <p className="content">{product.content}</p>
+
+                        <div className="amount">
+                            <button onClick={() => decrement(product._id)} className="btn">-</button>
+                            <span>{product.quantity}</span>
+                            <button onClick={() => increment(product._id)} className="btn">+</button>
                         </div>
-                    </div>
-                ))
-            }
 
-            <div className="total">
-                <h3>Total: Rs. {total}</h3>
-                <button onClick={() => handlePayment()} className="payment">Buy Now</button>
-            </div>
+                    </div>
+                </div>
+            ))
+        }
+
+        <div className="total-section">
+            <h3>Total: Rs. {total}</h3>
+            <button onClick={() => handlePayment()} className="payment-btn">Buy Now</button>
         </div>
+    </div>
+</div>
     )
 }
 
