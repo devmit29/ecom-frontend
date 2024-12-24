@@ -12,31 +12,42 @@
 .categories label{
     display: block;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
     margin-bottom: 10px;
 }
 .categories input, button{
     height: 35px;
+    border-radius: 10px;
+    padding: 0.5rem;
     border: none;
     outline: none;
-    border-bottom: 1px solid #555;
 }
 .categories input{
     width: 210px;
 }
 .categories button{
     width: 70px;
-    background: #555;
+    background: #0897be;
     color: white;
     margin-left: 10px;
 }
+.categories button:hover{
+    opacity: 90%;
+}
 .categories .row{
-    min-width: 290px;
+    min-width: 350px;
+    background-color: #ffffff;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    box-shadow: 2px 2px 5px gray;
+    animation: 0.3s ;
+}
+.categories .row:hover{
+    transform: scale(1.05)
+}
+.row p{
+    font-weight: 500;
 }

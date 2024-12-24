@@ -8,8 +8,8 @@ const initialState = {
     product_id: '',
     title: '',
     price: 0,
-    description: 'Enter descryption of the item.',
-    content: 'Enter the basic ingridients of your product.',
+    description: '',// 'Enter description of the item.',
+    content: '', //'Enter the basic ingridients of your product.',
     category: '',
     _id: ''
 }
@@ -139,37 +139,37 @@ function CreateProduct() {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <label htmlFor="product_id">Product ID</label>
-                    <input type="text" name="product_id" id="product_id" required
+                    <input type="text" name="product_id" id="product_id" required placeholder='Enter the product id'
                     value={product.product_id} onChange={handleChangeInput} disabled={onEdit} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" id="title" required
+                    <input type="text" name="title" id="title" required placeholder='Enter the Product Name'
                     value={product.title} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="price">Price</label>
-                    <input type="number" name="price" id="price" required
-                    value={product.price} onChange={handleChangeInput} />
+                    <input type="number" name="price" id="price" required placeholder='Enter the price in rupees.'
+                    value={''} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="description">Description</label>
-                    <textarea type="text" name="description" id="description" required
+                    <textarea type="text" name="description" id="description" required placeholder='Enter the description of the Product.'
                     value={product.description} rows="5" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="content">Content</label>
-                    <textarea type="text" name="content" id="content" required
+                    <textarea type="text" name="content" id="content" required placeholder='Enter the contents of the product.'
                     value={product.content} rows="7" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="categories">Categories: </label>
-                    <select name="category" value={product.category} onChange={handleChangeInput} >
+                    <select className='category-select' name="category" value={product.category} onChange={handleChangeInput} >
                         <option value="">Please select a category</option>
                         {
                             categories.map(category => (

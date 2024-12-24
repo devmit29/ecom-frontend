@@ -42,10 +42,8 @@
 }
 
 .nav-links a.active {
-  
   font-weight: bold;
 }
-
 .nav-links a:hover {
   color: #ff6347;
 }
@@ -174,6 +172,7 @@
     background-color: #ff6347;
     color: #fff;
     text-transform: uppercase;
+
     font-weight: bold;
     border: none;
     border-radius: 5px;
