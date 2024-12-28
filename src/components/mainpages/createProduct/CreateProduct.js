@@ -7,7 +7,7 @@ import {useHistory, useParams} from 'react-router-dom'
 const initialState = {
     product_id: '',
     title: '',
-    price: 0,
+    price: '',
     description: '',// 'Enter description of the item.',
     content: '', //'Enter the basic ingridients of your product.',
     category: '',
@@ -152,7 +152,7 @@ function CreateProduct() {
                 <div className="row">
                     <label htmlFor="price">Price</label>
                     <input type="number" name="price" id="price" required placeholder='Enter the price in rupees.'
-                    value={''} onChange={handleChangeInput} />
+                    value={product.price} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
