@@ -21,7 +21,8 @@ function Loading() {
                     </div>
                 </div>
             </div>
-            <p className='text'>Please Wait for 15 seconds as the Backend is Loading.</p>
+            <p className='text'>Please Wait for 20-25 seconds as the backend is on the free plan so takes time to load for the first time.</p>
+            <p className='text'>Sorry for the inconvenience.</p>
         </div>
     )
 }

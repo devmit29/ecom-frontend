@@ -104,7 +104,6 @@ function Cart() {
 
     const handlePayment = async() => {
         try {
-			
 			const { data } = await axios.post('/api/orders', { amount: total },  {
                 headers: {Authorization: token}
             });
