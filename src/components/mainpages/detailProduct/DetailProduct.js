@@ -48,7 +48,7 @@ function DetailProduct() {
                 <div className="products">
                     {
                         products.map(product => {
-                            return product.category === detailProduct.category 
+                            return product.category === detailProduct.category && product._id !== detailProduct._id
                                 ? <ProductItem key={product._id} product={product} /> : null
                         })
                     }

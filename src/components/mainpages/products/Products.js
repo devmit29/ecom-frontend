@@ -60,7 +60,6 @@ function Products() {
     return (
         <>
         <Filters />
-        
         {
             isAdmin && 
             <div className="delete-all">

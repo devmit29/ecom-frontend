@@ -109,5 +109,5 @@ input::-webkit-inner-spin-button {
     font-weight: 700;
 }
 .create_product form button:hover{
-    opacity: 80%;
+    background-color: #0683a5;
 }
